@@ -1,6 +1,8 @@
-function SignIn() {
+import Layout from "../../components/layout";
+
+const SignIn = () => {
   return (
-    <div>SignIn</div>
+    <Layout>SignIn</Layout>
   )
 }
 

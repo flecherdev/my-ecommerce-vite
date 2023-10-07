@@ -1,7 +1,8 @@
+import Layout from "../../components/layout";
 
-function Home() {
+const Home = () => {
   return (
-    <div>Home</div>
+    <Layout>Home</Layout>
   )
 }
 
