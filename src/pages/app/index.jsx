@@ -23,7 +23,7 @@ const AppRoutes = () => {
 }
 
 const App = () => {
-
+  // tracking-wide font-roboto min-h-screen grid content-start dark bg-gray-900 pt-6 text-3xl font-semibold text-center text-gray-200 dark:text-gray-200
   return (
       <div className='tracking-wide font-roboto min-h-screen grid content-start dark bg-gray-900 pt-6 text-3xl font-semibold text-center text-gray-200 dark:text-gray-200'>
         <BrowserRouter>
