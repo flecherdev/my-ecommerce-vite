@@ -9,10 +9,11 @@ const Card = (data) => {
     context.openProductDetail()
     context.setProductToShow(productDetail)
   }
-  const addProductToCard = (product) => {
+  const addProductToCard = (event, product) => {
+    event.stopPropagation();
     context.setCount(context.count + 1)
     context.setCartProducts([...context.cartProducts, product])
-    console.log('card: ', context.cartProducts)
+    context.openCheckOutSideMenu()
   }
   return (
     <div 
@@ -26,7 +27,7 @@ const Card = (data) => {
         <img className="w-full h-full object-cover rounded-lg" src={images[0]} alt={title} />
         <div 
           className="absolute top-0 right-0 flex justify-center items-center bg-white/75 w-7 h-7 rounded-full m-2 p-1 text-black/40"
-          onClick={() => addProductToCard(data.data)}>
+          onClick={(event) => addProductToCard(event, data.data)}>
             <PlusCircleIcon className="w-6 h-6"/>
         </div>
       </figure>
