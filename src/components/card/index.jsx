@@ -1,5 +1,8 @@
+import { useContext } from "react";
+import { ShoppingCartContext } from "../../context";
 
 const Card = (data) => {
+  const context = useContext(ShoppingCartContext)
   const { price, images, title, category } = data.data;
   return (
     <div className="bg-white cursor-pointer w-56 h-60 rounded-lg">
@@ -8,7 +11,11 @@ const Card = (data) => {
           {category.name}
         </span>
         <img className="w-full h-full object-cover rounded-lg" src={images[0]} alt={title} />
-        <div className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1 text-xs text-black">+</div>
+        <div 
+          className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1 text-xs text-black"
+          onClick={() => context.setCount(context.count + 1)}>
+            +
+        </div>
       </figure>
       <p className="flex justify-between text-black ">
         <span className="text-xs font-light px-3">{title}</span>
