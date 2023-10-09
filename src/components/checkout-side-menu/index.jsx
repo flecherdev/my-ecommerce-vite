@@ -19,16 +19,18 @@ const CheckoutSideMenu = () => {
           onClick={() => context.closeCheckOutSideMenu()}
         />
       </div>
-      {
-        context.cartProducts.map(product => (
-          <OrderCard 
-            key={product.id}
-            title={product.title}  
-            imageUrl={product.images}
-            price={product.price}
-          />
-        ))
-      }
+      <div className="px-5 overflow-auto">
+        {
+          context.cartProducts.map(product => (
+            <OrderCard 
+              key={product.id}
+              title={product.title}  
+              imageUrl={product.images}
+              price={product.price}
+            />
+          ))
+        }
+      </div>
     </aside>
   )
 }
