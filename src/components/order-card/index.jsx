@@ -2,7 +2,7 @@ import { XCircleIcon } from '@heroicons/react/24/solid'
 
 const OrderCard = (props) => {
   // eslint-disable-next-line react/prop-types
-  const { title, imageUrl, price } = props
+  const { id, title, imageUrl, price, handleDelete } = props
   return (
     <div className="flex justify-between items-center text-black">
       <dir className="flex items-center gap-2">
@@ -15,7 +15,7 @@ const OrderCard = (props) => {
         <p className="text-lg font-medium">${price}</p>
         <XCircleIcon 
           className="h-6 w-6 text-black cursor-pointer"
-          onClick={() => {}}
+          onClick={() => handleDelete(id)}
         />
       </div>
     </div>

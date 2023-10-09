@@ -17,7 +17,6 @@ const Card = (data) => {
   }
   const renderIcon = (id) => {
     const isInCart = context.cartProducts.filter(product => product.id === id).length > 0
-    console.log('isInCart: ', isInCart)
     if (isInCart) {   
       return (
         <div 
