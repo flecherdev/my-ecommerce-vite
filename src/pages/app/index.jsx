@@ -19,6 +19,7 @@ const AppRoutes = () => {
     { path: '/order', element: <Order/>},
     { path: '/orders', element: <Orders/>},
     { path: '/orders/last', element: <Order/>},
+    { path: '/orders/:id', element: <Order/>},
     { path: '/not-found', element: <NotFound/>},
   ])
 
@@ -26,7 +27,6 @@ const AppRoutes = () => {
 }
 
 const App = () => {
-  // tracking-wide font-roboto min-h-screen grid content-start dark bg-gray-900 pt-6 text-3xl font-semibold text-center text-gray-200 dark:text-gray-200
   return (
     <ShoppingCartProvider>
       <div className='tracking-wide font-roboto min-h-screen grid content-start dark bg-gray-900 pt-6 text-3xl font-semibold text-center text-gray-200 dark:text-gray-200'>

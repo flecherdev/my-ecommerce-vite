@@ -71,10 +71,10 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink 
-            to={'/order'}
+            to={'/orders'}
             className={({isActive}) => isActive ? activeStyle : undefined}
           >
-            Order
+            Orders
           </NavLink>
         </li>
         <li>

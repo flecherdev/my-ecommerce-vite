@@ -1,27 +1,29 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { ShoppingCartContext } from "../../context";
-import OrderCard from '../../components/order-card'
+import OrdersCard from '../../components/orders-card'
 import Layout from "../../components/layout";
 
 const Orders = () => {
   const context = useContext(ShoppingCartContext)
-  const handleDelete = () => {
-
-  }
+  console.log('context order: ', context)
   return (
     <Layout>
-      Orders
+      <div className="flex justify-center items-center relative w-80 mb-6">
+        <h1>Orders</h1>
+      </div>
       <div className="px-5 overflow-auto">
         {
-          context.cartProducts.map(product => (
-            <OrderCard 
-              key={product.id}
-              id={product.id}
-              title={product.title}  
-              imageUrl={product.images}
-              price={product.price}
-              handleDelete={handleDelete}
-            />
+          context.order.map((order, index) => (
+            <Link 
+              to={`/orders/${order.id}`}
+              key={index}
+            > 
+              <OrdersCard 
+                totalPrice={order.totalPrice} 
+                totalProducts={order.totalProducts}
+              />
+            </Link>
           ))
         }
       </div>

@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
 import { ShoppingCartContext } from "../../context";
 import { XCircleIcon } from '@heroicons/react/24/solid';
 import { totalPrice } from "../../util";
@@ -17,9 +18,9 @@ const CheckoutSideMenu = () => {
   }
 
   const handleCheckout = () => {
-    console.log('----- ingreso ------')
     const orderToAdd = {
-      date: '09/10/2023',
+      id: uuidv4(),
+      date: new Date(),
       products: context.cartProducts,
       totalProducts: context.cartProducts.length,
       totalPrice: totalPrice(context.cartProducts)
