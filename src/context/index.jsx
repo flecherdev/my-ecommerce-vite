@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 
 export const ShoppingCartContext = createContext();
 
@@ -20,6 +20,34 @@ export const ShoppingCartProvider = ({children}) => {
   const [cartProducts, setCartProducts] = useState([])
   // Shop card order
   const [order, setOrder] = useState([])
+  // Get products
+  const [items, setItems] = useState(null);
+  const [filteredItems, setFilteredItems] = useState(null)
+  // Get products by tilte
+  const [searchByTitle, setSearchByTitle] = useState(null)
+
+  useEffect(() => {
+    getProduct();
+  }, [])
+  
+  const getProduct = async() =>{
+    try {
+      const data  = await (await fetch('https://api.escuelajs.co/api/v1/products')).json()
+      setItems(data)
+    } catch (error) {
+      console.log('error: ', error)
+    }
+  }
+
+  const filterdItemByTitle = (items, searchByTitle) => {
+    return items?.filter(item => item?.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+  }
+
+  useEffect(() => {
+    if (searchByTitle) setFilteredItems(filterdItemByTitle(items, searchByTitle)) 
+  }, [items, searchByTitle])
+  
+
   return (
     <ShoppingCartContext.Provider value={{
       count,
@@ -35,7 +63,12 @@ export const ShoppingCartProvider = ({children}) => {
       openCheckOutSideMenu,
       closeCheckOutSideMenu,
       order,
-      setOrder
+      setOrder,
+      items,
+      setItems,
+      searchByTitle,
+      setSearchByTitle,
+      filteredItems
     }}> 
       {children}
     </ShoppingCartContext.Provider>

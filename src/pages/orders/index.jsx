@@ -10,7 +10,7 @@ const Orders = () => {
   return (
     <Layout>
       <div className="flex justify-center items-center relative w-80 mb-6">
-        <h1>Orders</h1>
+        <h1 className="font-medium text-xl">Orders</h1>
       </div>
       <div className="px-5 overflow-auto">
         {
