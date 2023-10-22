@@ -5,7 +5,7 @@ import { XCircleIcon } from '@heroicons/react/24/solid'
 import "./styles.css"
 
 const ProductDetail = () => {
-  const context = useContext(ShoppingCartContext)
+  const context = useContext(ShoppingCartContext);
 
   return (
     <aside className={`${context.isProductDetailOpen ? 'flex' : 'hidden'} product-detail flex flex-col fixed right-0 border-black bg-white/95 rounded-lg`}>
@@ -21,6 +21,10 @@ const ProductDetail = () => {
           className="w-full h-full rounded-lg" 
           src={context.productToShow.images} 
           alt={context.productToShow.title} 
+          onError={({ currentTarget }) => {
+            currentTarget.onerror = null; // preven
+            currentTarget.src="nophoto.png";
+          }}
         />
       </figure>
       <p className="flex flex-col p-6 text-black">

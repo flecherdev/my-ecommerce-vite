@@ -2,12 +2,19 @@ import { XCircleIcon } from '@heroicons/react/24/solid'
 
 const OrderCard = (props) => {
   // eslint-disable-next-line react/prop-types
-  const { id, title, imageUrl, price, handleDelete  } = props
+  const { id, title, imageUrl, price, handleDelete  } = props;
   return (
     <div className={`flex justify-between items-center ${handleDelete ?  'text-black': 'text-white'} `} >
       <dir className="flex items-center gap-2">
         <figure className="w-20 h-20">
-          <img className="w-full h-full rounded-lg object-cover" src={imageUrl} alt="" />
+          <img 
+            className="w-full h-full rounded-lg object-cover" 
+            src={imageUrl} alt="" 
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null; // preven
+              currentTarget.src="nophoto.png";
+            }}
+          />
         </figure>
         <p className="text-sm font-light">{title}</p>
       </dir>

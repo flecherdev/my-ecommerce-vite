@@ -9,12 +9,12 @@ import OrderCard from '../order-card'
 import "./styles.css"
 
 const CheckoutSideMenu = () => {
-  const context = useContext(ShoppingCartContext)
+  const context = useContext(ShoppingCartContext);
 
   const handleDelete = (id) =>{
     const filteredProducts  = context.cartProducts.filter(product => product.id != id);
     context.setCartProducts(filteredProducts);
-    context.setCount(context.count - 1)
+    context.setCount(context.count - 1);
   }
 
   const handleCheckout = () => {
@@ -28,6 +28,7 @@ const CheckoutSideMenu = () => {
     context.setOrder([...context.order, orderToAdd]);
     context.setCartProducts([]);
     context.setCount(0);
+    context.setSearchByTitle(null);
   }
 
   return (

@@ -6,7 +6,6 @@ import Layout from "../../components/layout";
 
 const Orders = () => {
   const context = useContext(ShoppingCartContext)
-  console.log('context order: ', context)
   return (
     <Layout>
       <div className="flex justify-center items-center relative w-80 mb-6">
